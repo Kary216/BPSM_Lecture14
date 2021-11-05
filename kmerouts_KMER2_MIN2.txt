@@ -1,0 +1,6 @@
+### Kmer analysis
+#SQ 31231231
+#KMER 2
+#MIN 2
+31: 3
+

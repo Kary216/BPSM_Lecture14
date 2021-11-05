@@ -1,0 +1,28 @@
+#!/usr/local/bin/python3
+
+
+sequencein = input("Please enter the raw DNA sequence you want to analyse\n").upper()
+
+kmer_size = input("Please enter the kmer length for analysis\n")
+
+kmerfound_min = input("Please enter the threshold frequency of kmers found\n")
+
+kmersfound = []
+kmerrange = list(range(0,len(sequencein)))
+for startingbase in kmerrange :
+	if (startingbase + kmer_size) < len(sequencein) + 1 :
+		seqout = sequencein[startingbase : startingbase + kmer_size]
+			kmersfound = kmersfound + [seqout]
+nonredundantset = list(set(kmersfound))
+frequent_kmers = []
+for kmerfrequencies in nonredundantset :
+	if kmersfound.count(kmerfrequencies) > kmerfound_min :
+		frequent_kmers = frequent_kmers + [kmerfrequencies]
+		print('Lots!'+str(kmerfrequencies)+' '+str(kmersfound.count(kmerfrequencies)))
+	else :
+		print(str(kmerfrequencies)+' '+str(kmersfound.count(kmerfrequencies)))
+
+
+
+#sequencein = input("Please enter the raw DNA sequence you want to analyse\n").upper()
+#print("Thanks for entering the sequence",sequencein,"(which is",len(sequencein),"characters long)")

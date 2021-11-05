@@ -1,0 +1,18 @@
+#!/usr/local/bin/python3
+
+def get_protein_percent(protein, residue):
+    length = len(protein)
+    residue_count = protein.upper().count(residue.upper())
+    residue_percent = (residue_count / length)*100
+    return residue_percent
+
+
+
+def get_protein_percent_v2(protein, residue = ['A', 'I', 'L', 'M', 'F', 'W', 'Y', 'V']):
+    length = len(protein)
+    residue_count = 0
+    for aa in residue :
+        aa_count = protein.upper().count(aa.upper())
+        residue_count = residue_count + int(aa_count)
+    residue_percent = (residue_count / length)*100
+    return residue_percent

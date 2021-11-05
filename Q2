@@ -1,0 +1,8 @@
+#!/usr/local/bin/python3
+
+def base_counter(dna, threshold = 0.1):
+    length = len(dna)
+    undetermined_count = len(dna.upper().replace('A','').replace('T','').replace('C','').replace('G',''))
+    undetermined_percent = undetermined_count / length
+    return undetermined_percent > threshold
+
